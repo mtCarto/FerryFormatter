@@ -42,14 +42,22 @@ class csvFormatter(cmd.Cmd):
     print workFullFile
    #error catching if file is not find or entered name is wrong 
     lines = open(workFullFile,'r').readlines()
-    out = open("output.txt", 'w+')
     
+    #find water property lines, or just header line
+    out = open("output.txt", 'w+')
+#before outputting format the header names, try using the CSV lib    
 #data headers are on line 16 always, write out headers and rest of file to output.txt
     out.writelines(lines[16:])
   
   def do_prepData(self,line):
     print "Formatting data for GIS import. "
     #strip out spaces and special chars in column headers, format for input in to GIS (arc or Q)
+    lines = open("./output.txt", 'r')
+#load first line, iterate through line
+#     find all ' , ' and replace with ','
+#     find gaps in header names and replace with '_'
+#     find [] and () and remove
+
   def do_formatData(self,line):
     print "data formatting options"
     #average data, find poor QC flags, remove desired column, etc
